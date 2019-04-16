@@ -37,7 +37,7 @@ pop_size = (sol_per_pop,num_weights) # The population will have sol_per_pop chro
 new_population = numpy.random.randint(low=20, high=25, size=pop_size)
 print(new_population)
 
-num_generations = 10
+num_generations = 10000
 for generation in range(num_generations):
     print("Generation : ", generation)
     # Measing the fitness of each chromosome in the population.

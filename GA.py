@@ -1,5 +1,5 @@
 import numpy
-import math
+import random
 
 def cal_pop_fitness(equation_inputs, pop):
     # Calculating the fitness value of each solution in the current population.
@@ -8,9 +8,9 @@ def cal_pop_fitness(equation_inputs, pop):
     div = numpy.divide(equation_inputs,pop)
     ceil = numpy.ceil(div)
     fitness = numpy.sum(ceil, axis=1)
-    print("Div = ", div)
-    print("Ceil = ", ceil)
-    print("Sum = ", fitness)
+    # print("Div = ", div)
+    # print("Ceil = ", ceil)
+    # print("Sum = ", fitness)
     return fitness
 
 def select_mating_pool(pop, fitness, num_parents):
@@ -43,6 +43,7 @@ def mutation(offspring_crossover):
     # Mutation changes a single gene in each offspring randomly.
     for idx in range(offspring_crossover.shape[0]):
         # The random value to be added to the gene.
-        random_value = numpy.random.uniform(-2, 2, 1)
-        offspring_crossover[idx, 4] = offspring_crossover[idx, 4] + random_value
+        random_value = numpy.random.uniform(-3, 3, 1)
+        rand = random.randrange(0, offspring_crossover.shape[0])
+        offspring_crossover[idx, rand] = offspring_crossover[idx, rand] + random_value
     return offspring_crossover
